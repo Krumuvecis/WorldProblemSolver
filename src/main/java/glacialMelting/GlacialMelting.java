@@ -1,12 +1,13 @@
 package glacialMelting;
 
-import geography.GeographySummary;
+import geography.ClimateChange;
 import geography.glaciers.GlacierSummary;
+import geography.waters.OpenWaters;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static geography.GeographySummary.GLOBAL_TEMPERATURE_2022;
+import static geography.ClimateChange.GLOBAL_TEMPERATURE_2022;
 
 //TODO: finish this and add javadoc
 public class GlacialMelting {
@@ -31,7 +32,7 @@ public class GlacialMelting {
         int     startingYear = FIRST_YEAR.year + 1,
                 endYear = startingYear + years;
         for (int year = startingYear; year < endYear; year++) {
-            temperature += GeographySummary.yearlyTemperatureChange();
+            temperature += ClimateChange.yearlyTemperatureChange();
             double glacierVolumeChange = glacierVolumeChange(temperature, glacierVolume);
             glacierVolume += glacierVolumeChange;
             seaLevelRise += seaLevelRise(glacierVolumeChange);
@@ -50,6 +51,6 @@ public class GlacialMelting {
     }
 
     private static double seaLevelRise(double glacierVolumeChange) {
-        return -glacierVolumeChange / GeographySummary.totalOceanArea;
+        return -glacierVolumeChange / OpenWaters.totalOceanArea();
     }
 }
