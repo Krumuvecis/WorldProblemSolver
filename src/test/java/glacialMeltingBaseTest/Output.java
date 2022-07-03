@@ -20,8 +20,8 @@ class Output {
         for (YearlyData year : glacialMelting.yearList) {
             separator();
             printLine("year: " + year.year
-                    + ", global temperature: +" + doubleToString(year.temperature, 3) + " C");
-            printLine("glacier volume: " + doubleToString(year.glacierVolume, 0) + " m3");
+                    + ", global temperature: +" + doubleToString(year.temperature, 1) + " C");
+            printLine("glacier volume: " + doubleToString(year.glacierVolume / Math.pow(10, 12), 1) + " thousands of km3");
             printLine("sea level rise: " + doubleToString(year.seaLevelRise, 3) + " m");
         }
     }
