@@ -2,29 +2,25 @@ package glacialMeltingBaseTest;
 
 import glacialMelting.GlacialMelting;
 
-import static outputUtilities.OutputUtilities.printLine;
-import static outputUtilities.OutputUtilities.separator;
-import static utilities.TextFormatter.doubleToString;
-
+/**
+ * Tests glacial melting base rate.
+ */
 public class GlacialMeltingBaseTest {
     private static GlacialMelting glacialMelting;
 
+    /**
+     * Main method of this test.
+     * Run this to start.
+     *
+     * @param args Command-line arguments.
+     */
     public static void main(String[] args) {
         int yearsToCalculate = 50;
         prepareGlacialMelting(yearsToCalculate);
-        output();
+        Output.output(glacialMelting);
     }
 
     private static void prepareGlacialMelting(int years) {
         glacialMelting = new GlacialMelting(years);
-    }
-
-    private static void output() {
-        for (GlacialMelting.YearlyData year : glacialMelting.yearList) {
-            separator();
-            printLine("year: " + year.year
-                    + ", temperature: +" + doubleToString(year.temperature, 1) + " C");
-            printLine("glacier volume: " + doubleToString(year.glacierVolume, 2) + "%");
-        }
     }
 }
