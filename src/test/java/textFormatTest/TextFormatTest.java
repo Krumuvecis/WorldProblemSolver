@@ -4,12 +4,21 @@ import static outputUtilities.OutputUtilities.printLine;
 import static outputUtilities.OutputUtilities.separator;
 import static utilities.TextFormatter.doubleToString;
 
+/**
+ * Testing text formatting.
+ */
 public class TextFormatTest {
     private static final double
             d1 = 7.007,
             d2 = 12341234.1234,
             d3 = 0.1;
 
+    /**
+     * Main method of this test.
+     * Run this to start.
+     *
+     * @param args Command-line arguments.
+     */
     public static void main(String[] args) {
         printLine(doubleToString(d1,2));
         printLine(doubleToString(d1,3));
