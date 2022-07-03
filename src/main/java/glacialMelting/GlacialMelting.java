@@ -8,7 +8,7 @@ public class GlacialMelting {
     private static final YearlyData FIRST_YEAR = new YearlyData(
             2022,
             GLOBAL_TEMPERATURE,
-            YearlyData.maxGlacierVolume(GLOBAL_TEMPERATURE));
+            maxGlacierVolume(GLOBAL_TEMPERATURE));
 
     public List<YearlyData> yearList;
 
@@ -23,7 +23,7 @@ public class GlacialMelting {
                 endYear = startingYear + years + 1;
         for (int year = startingYear; year < endYear; year++) {
             temperature += yearlyTemperatureChange();
-            yearList.add(new YearlyData(year, temperature, YearlyData.maxGlacierVolume(temperature)));
+            yearList.add(new YearlyData(year, temperature, maxGlacierVolume(temperature)));
         }
     }
 
@@ -32,29 +32,13 @@ public class GlacialMelting {
         yearList.add(FIRST_YEAR);
     }
 
-    static double yearlyTemperatureChange() {
-        return 0.1;
+    private static double maxGlacierVolume(double temperature) {
+        double coefficient = -20; //function k - probably negative
+        double offset = 100 - 13.9 * coefficient; //function b
+        return Math.max(0, temperature * coefficient + offset);
     }
 
-    public static class YearlyData {
-        public int year;
-        public double temperature;
-        public double glacierVolume;
-
-        YearlyData(int year, double temperature, double glacierVolume) {
-            this.year = year;
-            this.temperature = temperature;
-            this.glacierVolume = glacierVolume;
-        }
-
-        private static double maxGlacierVolume(double temperature) {
-            double coefficient = -20; //function k - probably negative
-            double offset = 100 - 13.9 * coefficient; //function b
-            return Math.max(0, temperature * coefficient + offset);
-        }
-
-        /*double baseMeltRate() {
-            return Math.min()
-        }*/
+    static double yearlyTemperatureChange() {
+        return 0.1;
     }
 }

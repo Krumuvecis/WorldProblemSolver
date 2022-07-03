@@ -1,6 +1,7 @@
 package glacialMeltingBaseTest;
 
 import glacialMelting.GlacialMelting;
+import glacialMelting.YearlyData;
 
 import static outputUtilities.OutputUtilities.printLine;
 import static outputUtilities.OutputUtilities.separator;
@@ -18,7 +19,7 @@ class Output {
      * @param glacialMelting A GlacialMelting object.
      */
     protected static void output(@NotNull GlacialMelting glacialMelting) {
-        for (GlacialMelting.YearlyData year : glacialMelting.yearList) {
+        for (YearlyData year : glacialMelting.yearList) {
             separator();
             printLine("year: " + year.year
                     + ", temperature: +" + doubleToString(year.temperature, 1) + " C");
