@@ -5,6 +5,10 @@ import java.math.BigInteger;
 
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Currently doesn't work.
+ * TODO: fix and add javadoc
+ */
 public class BigDecimalHelper {
     public static @NotNull BigDecimal newBigDecimal(@NotNull String base, int power) {
         BigDecimal baseBig = new BigDecimal(base);

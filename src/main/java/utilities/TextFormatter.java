@@ -2,6 +2,7 @@ package utilities;
 
 import java.text.DecimalFormat;
 
+//TODO: add javadoc
 public class TextFormatter {
     private static final String
             NUMBER_SYMBOL = "#",
