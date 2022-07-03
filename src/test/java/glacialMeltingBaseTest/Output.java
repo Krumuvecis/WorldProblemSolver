@@ -30,8 +30,13 @@ class Output {
     }
 
     private static void printYearlyData(@NotNull GlacialMelting glacialMelting) {
-        for (YearlyData year : glacialMelting.yearList) {
-            separator();
+        YearlyDataPrinter printer = new YearlyDataPrinter();
+        printer.print(glacialMelting.yearList);
+    }
+
+    private static class YearlyDataPrinter extends AbstractYearlyDataPrinter {
+        @Override
+        public void printSingleYear(YearlyData year) {
             printLine("Year: "
                     + year.year
                     + ", global temperature: +"

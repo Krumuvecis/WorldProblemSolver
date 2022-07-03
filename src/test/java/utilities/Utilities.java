@@ -1,8 +1,10 @@
 package utilities;
 
+import java.util.List;
 import java.util.Objects;
 import java.text.DecimalFormat;
 
+import glacialMelting.YearlyData;
 import org.jetbrains.annotations.Nullable;
 
 //TODO: add javadoc
@@ -37,5 +39,16 @@ public class Utilities {
      */
     public static void separator() {
         printLine("-".repeat(12));
+    }
+
+    public static abstract class AbstractYearlyDataPrinter {
+        public void print(List<YearlyData> yearList) {
+            for (YearlyData year : yearList) {
+                separator();
+                printSingleYear(year);
+            }
+        }
+
+        public abstract void printSingleYear(YearlyData year);
     }
 }

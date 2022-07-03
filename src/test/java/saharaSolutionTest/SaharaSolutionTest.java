@@ -2,12 +2,7 @@ package saharaSolutionTest;
 
 import saharaSolution.SaharaSolution;
 
-import java.util.Objects;
-
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
-import static utilities.Utilities.printLine;
 
 //TODO: finish this and add javadoc
 public class SaharaSolutionTest {
