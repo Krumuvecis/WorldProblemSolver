@@ -1,14 +1,20 @@
 package glacialMelting;
 
+import geography.GeographySummary;
+import geography.glaciers.GlacierSummary;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import static geography.GeographySummary.GLOBAL_TEMPERATURE_2022;
+
+//TODO: finish this and add javadoc
 public class GlacialMelting {
-    private static final double GLOBAL_TEMPERATURE = 13.9;
     private static final YearlyData FIRST_YEAR = new YearlyData(
             2022,
-            GLOBAL_TEMPERATURE,
-            maxGlacierVolume(GLOBAL_TEMPERATURE));
+            GLOBAL_TEMPERATURE_2022,
+            GlacierSummary.maxGlacierVolume(GLOBAL_TEMPERATURE_2022),
+            0);
 
     public List<YearlyData> yearList;
 
@@ -18,12 +24,19 @@ public class GlacialMelting {
 
     private void prepareYearList(int years) {
         addFirstYear();
-        double  temperature = FIRST_YEAR.temperature;
+        double  temperature = FIRST_YEAR.temperature,
+                glacierVolume = FIRST_YEAR.glacierVolume,
+                seaLevelRise = FIRST_YEAR.seaLevelRise;
+
         int     startingYear = FIRST_YEAR.year + 1,
                 endYear = startingYear + years + 1;
         for (int year = startingYear; year < endYear; year++) {
-            temperature += yearlyTemperatureChange();
-            yearList.add(new YearlyData(year, temperature, maxGlacierVolume(temperature)));
+            temperature += GeographySummary.yearlyTemperatureChange();
+            double glacierVolumeChange = glacierVolumeChange(temperature, glacierVolume);
+            glacierVolume += glacierVolumeChange;
+            seaLevelRise += seaLevelRise(glacierVolumeChange);
+
+            yearList.add(new YearlyData(year, temperature, glacierVolume, seaLevelRise));
         }
     }
 
@@ -32,13 +45,11 @@ public class GlacialMelting {
         yearList.add(FIRST_YEAR);
     }
 
-    private static double maxGlacierVolume(double temperature) {
-        double coefficient = -20; //function k - probably negative
-        double offset = 100 - 13.9 * coefficient; //function b
-        return Math.max(0, temperature * coefficient + offset);
+    private static double glacierVolumeChange(double temperature, double previousVolume) {
+        return GlacierSummary.maxGlacierVolume(temperature) - previousVolume;
     }
 
-    static double yearlyTemperatureChange() {
-        return 0.1;
+    private static double seaLevelRise(double glacierVolumeChange) {
+        return -glacierVolumeChange / GeographySummary.totalOceanArea;
     }
 }

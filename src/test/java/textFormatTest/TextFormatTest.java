@@ -1,8 +1,6 @@
 package textFormatTest;
 
-import static outputUtilities.OutputUtilities.printLine;
-import static outputUtilities.OutputUtilities.separator;
-import static utilities.TextFormatter.doubleToString;
+import static utilities.Utilities.*;
 
 /**
  * Testing text formatting.

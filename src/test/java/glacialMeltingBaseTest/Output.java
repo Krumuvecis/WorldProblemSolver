@@ -3,9 +3,7 @@ package glacialMeltingBaseTest;
 import glacialMelting.GlacialMelting;
 import glacialMelting.YearlyData;
 
-import static outputUtilities.OutputUtilities.printLine;
-import static outputUtilities.OutputUtilities.separator;
-import static utilities.TextFormatter.doubleToString;
+import static utilities.Utilities.*;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -22,8 +20,9 @@ class Output {
         for (YearlyData year : glacialMelting.yearList) {
             separator();
             printLine("year: " + year.year
-                    + ", temperature: +" + doubleToString(year.temperature, 1) + " C");
-            printLine("glacier volume: " + doubleToString(year.glacierVolume, 2) + "%");
+                    + ", global temperature: +" + doubleToString(year.temperature, 3) + " C");
+            printLine("glacier volume: " + doubleToString(year.glacierVolume, 0) + " m3");
+            printLine("sea level rise: " + doubleToString(year.seaLevelRise, 3) + " m");
         }
     }
 }

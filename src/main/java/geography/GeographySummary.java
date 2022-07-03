@@ -1,17 +1,13 @@
 package geography;
 
-import geography.glaciers.GlacierSummary;
-
-import java.math.BigDecimal;
-
-import static utilities.BigDecimalHelper.newBigDecimal;
-
 public class GeographySummary {
-    public static BigDecimal totalOceanArea, totalSaharaArea;
+    public static final double totalOceanArea = 3.6 * Math.pow(10, 14); //in meters
+    public static final double GLOBAL_TEMPERATURE_2022 = 13.9;
 
-    static {
-        totalOceanArea = newBigDecimal("3.6",14); //in meters; 3.6*10^14
-        totalSaharaArea = newBigDecimal("9.2",12); //in meters; 9.2*10^12
-        //glaciers = new GlacierSummary();
+    public static final double totalSaharaArea = 9.2 * Math.pow(10, 12); //in meters
+
+    public static double yearlyTemperatureChange() {
+        //https://www.climate.gov/news-features/understanding-climate/climate-change-global-temperature
+        return 0.18 / 10;
     }
 }

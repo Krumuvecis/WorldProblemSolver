@@ -7,7 +7,7 @@ import java.util.Objects;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import static outputUtilities.OutputUtilities.printLine;
+import static utilities.Utilities.printLine;
 
 //TODO: finish this and add javadoc
 public class SaharaSolutionTest {

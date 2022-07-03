@@ -1,9 +1,12 @@
 package utilities;
 
+import java.util.Objects;
 import java.text.DecimalFormat;
 
+import org.jetbrains.annotations.Nullable;
+
 //TODO: add javadoc
-public class TextFormatter {
+public class Utilities {
     private static final String
             NUMBER_SYMBOL = "#",
             DECIMAL_SEPARATOR = ".";
@@ -18,5 +21,21 @@ public class TextFormatter {
             formatStringBuilder.append(NUMBER_SYMBOL.repeat(decimalPlaces));
         }
         return new DecimalFormat(formatStringBuilder.toString());
+    }
+
+    /**
+     * Prints a line to console.
+     *
+     * @param line Line to print.
+     */
+    public static void printLine(@Nullable String line) {
+        System.out.println(Objects.requireNonNullElse(line, ""));
+    }
+
+    /**
+     * Prints a separator to console.
+     */
+    public static void separator() {
+        printLine("-".repeat(12));
     }
 }
