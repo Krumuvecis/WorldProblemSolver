@@ -29,7 +29,7 @@ public class GlacialMelting {
                 seaLevelRise = FIRST_YEAR.seaLevelRise;
 
         int     startingYear = FIRST_YEAR.year + 1,
-                endYear = startingYear + years + 1;
+                endYear = startingYear + years;
         for (int year = startingYear; year < endYear; year++) {
             temperature += GeographySummary.yearlyTemperatureChange();
             double glacierVolumeChange = glacierVolumeChange(temperature, glacierVolume);
@@ -46,7 +46,7 @@ public class GlacialMelting {
     }
 
     private static double glacierVolumeChange(double temperature, double previousVolume) {
-        return GlacierSummary.maxGlacierVolume(temperature) - previousVolume;
+        return Math.max(-previousVolume, GlacierSummary.maxGlacierVolume(temperature) - previousVolume);
     }
 
     private static double seaLevelRise(double glacierVolumeChange) {
