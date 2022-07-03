@@ -18,6 +18,16 @@ Tries to solve the problems of the world.
 * jetbrains annotations: 23.0.0
 
 
+## Functionality
+
+Calculates yearly glacial melting and corresponding sea level rise.
+* See `src\test\java\glacialMeltingBaseTest` for base rate of melting.
+* *Solutions coming soon...*
+
+Extra:
+* See `src\test\java\textFormatTest` for formatting of doubles.
+
+
 ## Notes
 
-*Under construction, expect changes...*
+*Work in progress, expect changes...*
