@@ -4,6 +4,8 @@ import geography.waters.OpenWaters;
 import glacialMelting.GlacialMelting;
 import glacialMelting.YearlyData;
 
+import static consoleUtils.ConsoleUtils.printLine;
+import static consoleUtils.NumberFormatter.doubleToString;
 import static utilities.Utilities.*;
 
 import org.jetbrains.annotations.NotNull;
