@@ -13,8 +13,8 @@ public class WorldMap {
 
     private static final String
             commonPath = "src/main/resources/map/",
-            equirectangularPath = commonPath + "mercator_792x480.png",
-            mercatorPath = commonPath + "equirectangular_2058x1036.png";
+            equirectangularPath = commonPath + "equirectangular_2058x1036.png",
+            mercatorPath = commonPath + "mercator_792x480.png";
 
     static BufferedImage getWorldMapImage(WorldMapType type) throws IOException {
         String filePath;
