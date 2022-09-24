@@ -1,16 +1,15 @@
 package glacialMelting;
 
-import geography.ClimateChange;
+import globalWarming.ClimateChange;
 import geography.glaciers.GlacierSummary;
 import geography.waters.OpenWaters;
 
 import java.util.List;
 import java.util.ArrayList;
 
-import static geography.ClimateChange.GLOBAL_TEMPERATURE_2022;
-
 //TODO: finish this and add javadoc
 public class GlacialMelting {
+    private static final double GLOBAL_TEMPERATURE_2022 = 13.9;
     private static final double DENSITY_OF_ICE = 917, DENSITY_OF_WATER = 1000;
     private static final YearlyData FIRST_YEAR = new YearlyData(
             2022,

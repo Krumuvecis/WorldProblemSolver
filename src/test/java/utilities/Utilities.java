@@ -4,14 +4,14 @@ import java.util.List;
 
 import glacialMelting.YearlyData;
 
-import static consoleUtils.ConsoleUtils.separator;
+import static consoleUtils.ConsoleUtils.printSeparator;
 
 //TODO: add javadoc
 public class Utilities {
     public static abstract class AbstractYearlyDataPrinter {
         public void print(List<YearlyData> yearList) {
             for (YearlyData year : yearList) {
-                separator();
+                printSeparator();
                 printSingleYear(year);
             }
         }
