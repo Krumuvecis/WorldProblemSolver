@@ -25,11 +25,11 @@ public class Europe extends AbstractRegion {
             add(new RegionBorderInfo(new UkraineRomaniaNorthEastwards(), false));
             add(new RegionBorderInfo(new RomaniaMoldovaSouthwards(), false));
             add(new RegionBorderInfo(new UkraineRomaniaSouthEastwards(), false));
-            /*add(new RegionBorderInfo(new (), false)); //romania black-sea coast
-            add(new RegionBorderInfo(new (), false)); //bulgaria black-sea coast
-            add(new RegionBorderInfo(new (), false)); //turkey-bulgaria
-            add(new RegionBorderInfo(new (), false)); //turkey-greece
-            add(new RegionBorderInfo(new (), false)); //greece mediterranean coast
+            add(new RegionBorderInfo(new RomaniaBlackSeaCoastSouthwards(), false));
+            add(new RegionBorderInfo(new BulgariaBlackSeaCoastNorthwards(), true));
+            add(new RegionBorderInfo(new TurkeyBulgariaEastwards(), true));
+            add(new RegionBorderInfo(new TurkeyGreeceSouthwards(), false));
+            /*add(new RegionBorderInfo(new (), false)); //greece mediterranean coast
             add(new RegionBorderInfo(new (), false)); //europe common mediterranean coast
             add(new RegionBorderInfo(new (), false)); //europe common atlantic coast*/
         }});
