@@ -2,30 +2,17 @@ package crudeGraphics;
 
 import geography.Coordinates;
 import geography.regions.AbstractRegion;
-import geography.regions.RegionBorderInfo;
 import geography.regions.particularRegions.Belarus;
 import geography.regions.particularRegions.Russia;
 import geography.regions.particularRegions.SampleRegion;
 
-import javax.swing.*;
+import java.util.List;
+import java.util.ArrayList;
 import java.awt.*;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import javax.swing.*;
 
 public class Contents extends JPanel {
-    private static class RegionDrawInfo {
-        AbstractRegion region;
-        int dangerLevel; // 0; 1; 2
-        boolean draw;
-
-        RegionDrawInfo(AbstractRegion region, int dangerLevel, boolean draw) {
-            this.region = region;
-            this.dangerLevel = dangerLevel;
-            this.draw = draw;
-        }
-    }
-
     private final List<RegionDrawInfo> regionDrawInfo;
 
     Contents() {
@@ -113,5 +100,17 @@ public class Contents extends JPanel {
                 (int) (location[1] - ovalSize / 2.0),
                 ovalSize,
                 ovalSize);
+    }
+
+    private static class RegionDrawInfo {
+        AbstractRegion region;
+        int dangerLevel; // 0; 1; 2
+        boolean draw;
+
+        RegionDrawInfo(AbstractRegion region, int dangerLevel, boolean draw) {
+            this.region = region;
+            this.dangerLevel = dangerLevel;
+            this.draw = draw;
+        }
     }
 }
