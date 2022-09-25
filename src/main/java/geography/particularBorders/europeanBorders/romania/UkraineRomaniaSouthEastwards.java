@@ -2,6 +2,7 @@ package geography.particularBorders.europeanBorders.romania;
 
 import geography.AbstractBorder;
 import geography.Location;
+import geography.particularLocations.commonBorderPoints.Cardon;
 
 import java.util.ArrayList;
 
@@ -11,9 +12,7 @@ public class UkraineRomaniaSouthEastwards extends AbstractBorder {
             add(new Location(
                     "Giurgiulesti",
                     45.4740227215942, 28.203272065434106));
-            add(new Location(
-                    "Cardon",
-                    45.26210961214868, 29.672225602400413));
+            add(new Cardon());
         }});
     }
 }

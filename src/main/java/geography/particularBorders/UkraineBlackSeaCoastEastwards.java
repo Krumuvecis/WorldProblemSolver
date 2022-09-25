@@ -2,6 +2,7 @@ package geography.particularBorders;
 
 import geography.AbstractBorder;
 import geography.Location;
+import geography.particularLocations.commonBorderPoints.Cardon;
 import geography.particularLocations.commonBorderPoints.KerchStrait;
 
 import java.util.ArrayList;
@@ -9,9 +10,7 @@ import java.util.ArrayList;
 public class UkraineBlackSeaCoastEastwards extends AbstractBorder {
     public UkraineBlackSeaCoastEastwards() {
         super(new ArrayList<>() {{
-            add(new Location(
-                    "Cardon",
-                    45.26210961214868, 29.672225602400413));
+            add(new Cardon());
             add(new Location(
                     "Yuzhne",
                     46.62527079320756, 31.109867595444207));
