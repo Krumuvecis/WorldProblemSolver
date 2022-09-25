@@ -1,9 +1,8 @@
 package geography.regions;
 
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.Map;
-import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.*;
 import java.awt.*;
 
 import geography.Coordinates;
@@ -11,10 +10,10 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class AbstractRegion {
-    private final @NotNull Map<@NotNull Border, @NotNull Boolean> borders; //boolean shows if reversed order
+    private final @NotNull List<@NotNull RegionBorderInfo> borders; //boolean shows if reversed order
 
-    public AbstractRegion(@Nullable Map<@NotNull Border, @NotNull Boolean> borders) {
-        this.borders = Objects.requireNonNullElse(borders, new HashMap<>());
+    public AbstractRegion(@Nullable List<@NotNull RegionBorderInfo> borders) {
+        this.borders = Objects.requireNonNullElse(borders, new ArrayList<>());
     }
 
     public @NotNull Polygon getPolygon(int[] drawSize) {
@@ -33,25 +32,16 @@ public class AbstractRegion {
 
     private double[][] getTotalCoordinateArray() {
         double[][] totalCoordinateArray = new double[0][2];
-        for (Border border : borders.keySet()) {
+        for (RegionBorderInfo borderInfo : borders) {
             int previousArraySize = totalCoordinateArray.length;
-            double[][] borderCoordinateArray = border.getCoordinates();
-            //double[][] tempArray = totalCoordinateArray;
+            double[][] borderCoordinateArray = borderInfo.getCoordinates();
             totalCoordinateArray = Arrays.copyOf(
                     totalCoordinateArray,
                     previousArraySize + borderCoordinateArray.length);
-            //totalCoordinateArray = new double[previousArraySize + borderCoordinateArray.length][2];
-            boolean reverse = borders.get(border);
-
-            for (int i = 0; i < borderCoordinateArray.length; i++) {
-                int newIndex;
-                if (reverse) {
-                    newIndex = totalCoordinateArray.length - 1 - i;
-                } else {
-                    newIndex = previousArraySize + i;
-                }
-                totalCoordinateArray[newIndex] = borderCoordinateArray[i];
-            }
+            System.arraycopy(
+                    borderCoordinateArray, 0,
+                    totalCoordinateArray, previousArraySize,
+                    borderCoordinateArray.length);
         }
         return totalCoordinateArray;
     }

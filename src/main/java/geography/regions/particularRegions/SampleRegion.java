@@ -1,12 +1,23 @@
-package geography.regions;
+package geography.regions.particularRegions;
+
+import geography.regions.AbstractRegion;
+import geography.regions.RegionBorderInfo;
+import geography.regions.Border;
+import geography.regions.Location;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class SampleRegion extends AbstractRegion {
     public SampleRegion() {
-        super(new HashMap<>() {{
-            put(new Border(new ArrayList<>() {{ //northern border
+        super(new ArrayList<>() {{
+            add(new RegionBorderInfo(new NorthernBorder(), false));
+            add(new RegionBorderInfo(new SouthernBorder(), true));
+        }});
+    }
+
+    private static class NorthernBorder extends Border {
+        NorthernBorder() {
+            super(new ArrayList<>() {{
                 add(new Location(
                         "west",
                         20, 10));
@@ -16,8 +27,13 @@ public class SampleRegion extends AbstractRegion {
                 add(new Location(
                         "north 2",
                         30, 50));
-            }}), false); //clockwise
-            put(new Border(new ArrayList<>() {{ //southern border
+            }});
+        }
+    }
+
+    private static class SouthernBorder extends Border {
+        SouthernBorder() {
+            super(new ArrayList<>() {{
                 add(new Location(
                         "south 1",
                         10, 30));
@@ -27,7 +43,7 @@ public class SampleRegion extends AbstractRegion {
                 add(new Location(
                         "east",
                         20, 70));
-            }}), true); //counter-clockwise
-        }});
+            }});
+        }
     }
 }

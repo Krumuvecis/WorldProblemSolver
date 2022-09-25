@@ -10,7 +10,7 @@ public class Location {
     public final String name;
     public final double latitude, longitude;
 
-    Location(@Nullable String name, double latitude, double longitude) {
+    public Location(@Nullable String name, double latitude, double longitude) {
         this.name = Objects.requireNonNullElse(name, DEFAULT_NAME);
         this.latitude = latitude;
         this.longitude = longitude;
