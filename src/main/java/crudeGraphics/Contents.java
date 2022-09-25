@@ -1,15 +1,17 @@
 package crudeGraphics;
 
+import crudeGraphics.worldMap.WorldMapPainter;
 import geography.Coordinates;
 
-import java.awt.*;
-import javax.swing.*;
+import java.awt.Graphics;
+import java.awt.Color;
+import javax.swing.JPanel;
 
 public class Contents extends JPanel {
     private final WorldMapPainter worldMapPainter;
     private final RegionPainter regionPainter;
 
-    Contents() {
+    public Contents() {
         setBackground(Color.black);
         setOpaque(true);
         worldMapPainter = new WorldMapPainter();

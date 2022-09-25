@@ -1,6 +1,7 @@
 package crudeGraphicsTest;
 
 import crudeGraphics.Window;
+import crudeGraphics.Contents;
 
 public class CrudeGraphicsTest {
     private static final double SIZE_COEFFICIENT = (double) 3 / 5;
@@ -9,6 +10,6 @@ public class CrudeGraphicsTest {
             (int) (1036 * SIZE_COEFFICIENT)};
 
     public static void main(String[] args) {
-        new Window(WINDOW_SIZE);
+        new Window(WINDOW_SIZE, new Contents());
     }
 }
