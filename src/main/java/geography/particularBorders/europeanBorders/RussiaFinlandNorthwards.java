@@ -1,4 +1,4 @@
-package geography.particularBorders;
+package geography.particularBorders.europeanBorders;
 
 import geography.AbstractBorder;
 import geography.Location;

@@ -4,7 +4,7 @@ import geography.AbstractRegion;
 import geography.RegionBorderInfo;
 import geography.particularBorders.RussiaBelarusSouthwards;
 import geography.particularBorders.UkraineBelarusEastwards;
-import geography.particularBorders.BelarusWestNorthwards;
+import geography.particularBorders.europeanBorders.BelarusWestNorthwards;
 
 import java.util.ArrayList;
 

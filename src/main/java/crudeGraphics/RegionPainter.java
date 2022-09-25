@@ -4,6 +4,8 @@ import geography.AbstractRegion;
 import geography.particularRegions.sampleRegion.SampleRegion;
 import geography.particularRegions.Russia;
 import geography.particularRegions.Belarus;
+import geography.particularRegions.Ukraine;
+import geography.particularRegions.Moldova;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -15,9 +17,11 @@ class RegionPainter {
 
     RegionPainter() {
         regionDrawInfo = new ArrayList<>() {{
-            add(new RegionDrawInfo(new SampleRegion(), 0, true));
+            add(new RegionDrawInfo(new SampleRegion(), 0, false));
             add(new RegionDrawInfo(new Russia(), 2, true));
             add(new RegionDrawInfo(new Belarus(), 1, true));
+            add(new RegionDrawInfo(new Ukraine(), 0, true));
+            add(new RegionDrawInfo(new Moldova(), 1, true));
         }};
     }
 
