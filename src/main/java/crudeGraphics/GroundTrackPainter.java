@@ -1,24 +1,26 @@
 package crudeGraphics;
 
 import geography.Coordinates;
+import geography.Location;
 
-import java.awt.*;
+import java.awt.Graphics;
+import java.awt.Color;
 
-public class GroundTrackPainter {
-    void paintGroundTracks(Graphics g, int[] drawSize) {
+import org.jetbrains.annotations.NotNull;
+
+class GroundTrackPainter {
+    protected void paintGroundTracks(Graphics g, int @NotNull [] drawSize) {
         g.setColor(new Color(20, 255, 20, 190));
-        drawGroundTrack(g, drawSize, 24.1056, 56.9677); //Riga
-        drawGroundTrack(g, drawSize, 28.72072572239927, 44.87737491123246); //Romania
-        drawGroundTrack(g, drawSize, 12.222585507407091, 44.42201217577874); //Italy
-        drawGroundTrack(g, drawSize, -0.5614115111024103, 38.38596174661448); //Spain
+        drawGroundTrack(g, drawSize, new Location("Riga", 56.9677, 24.1056));
+        drawGroundTrack(g, drawSize, new Location("Romania", 44.87737491123246, 28.72072572239927));
+        drawGroundTrack(g, drawSize, new Location("Italy", 44.42201217577874, 12.222585507407091));
+        drawGroundTrack(g, drawSize, new Location("Spain", 38.38596174661448, -0.5614115111024103));
         g.setColor(new Color(20, 50, 255, 190));
-        drawGroundTrack(g, drawSize, -52.6832, 5.1673); //Guiana Space Centre
+        drawGroundTrack(g, drawSize, new Location("Guiana Space Centre", 5.1673, -52.6832));
     }
 
-    private void drawGroundTrack(Graphics g, int[] drawSize, double startingLongitude, double startingLatitude) {
-        double[] startingPointRadians = new double[] {
-                Math.toRadians(startingLongitude),
-                Math.toRadians(startingLatitude)};
+    private void drawGroundTrack(Graphics g, int @NotNull [] drawSize, @NotNull Location start) {
+        double @NotNull [] startCoordinates = start.getCoordinates();
         int dataPoints = 200;
         double deltaFi = 2 * Math.PI / dataPoints;
         for (int i = 0; i < dataPoints; i++) {
@@ -26,13 +28,13 @@ public class GroundTrackPainter {
             g.setColor(new Color(20, 255, 20, 190));
             drawSinglePoint(g, Coordinates.polarToDrawable(
                     new double[] {
-                            longitudeOffset + startingPointRadians[0],
-                            startingPointRadians[1] * Math.cos(longitudeOffset)},
+                            longitudeOffset + startCoordinates[0],
+                            startCoordinates[1] * Math.cos(longitudeOffset)},
                     drawSize));
         }
     }
 
-    private void drawSinglePoint(Graphics g, int[] location) {
+    private void drawSinglePoint(Graphics g, int @NotNull [] location) {
         int ovalSize = 6;
         g.fillOval(
                 (int) (location[0] - ovalSize / 2.0),
