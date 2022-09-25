@@ -17,13 +17,13 @@ class GroundTrackPainter {
         g.setColor(new Color(20, 255, 20, COMMON_OPACITY));
         drawGroundTrack(g, drawSize, new Riga());
         drawGroundTrack(g, drawSize, new Location(
-                "Romania",
+                "Somewhere in Romania",
                 44.87737491123246, 28.72072572239927));
         drawGroundTrack(g, drawSize, new Location(
-                "Italy",
+                "Somewhere in Italy",
                 44.42201217577874, 12.222585507407091));
         drawGroundTrack(g, drawSize, new Location(
-                "Spain",
+                "Somewhere in Spain",
                 38.38596174661448, -0.5614115111024103));
         g.setColor(new Color(20, 50, 255, COMMON_OPACITY));
         drawGroundTrack(g, drawSize, new GuianaSpaceCenter());
