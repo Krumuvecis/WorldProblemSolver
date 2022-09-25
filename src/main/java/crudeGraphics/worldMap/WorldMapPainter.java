@@ -8,18 +8,24 @@ import java.awt.image.ImageObserver;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+//TODO: add javadoc
 public class WorldMapPainter {
     private final @NotNull WorldMap worldMap;
 
+    //TODO: add javadoc
     public WorldMapPainter() {
         this(null);
     }
 
+    //TODO: add javadoc
     public WorldMapPainter(@Nullable ProjectionType projection) {
         worldMap = new WorldMap(projection);
     }
 
-    public void paintMap(Graphics g, ImageObserver observer, int[] drawSize) {
+    //TODO: add javadoc
+    public void paintMap(@NotNull Graphics g,
+                         @NotNull ImageObserver observer,
+                         int @NotNull [] drawSize) {
         try {
             Image resizedMap = worldMap.getImage().getScaledInstance(
                     drawSize[0], drawSize[1],

@@ -9,7 +9,8 @@ import javax.imageio.ImageIO;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class WorldMap {
+//TODO: add javadoc
+class WorldMap {
     private static final @NotNull String
             commonPath = "src/main/resources/map/",
             equirectangularPath = commonPath + "equirectangular_2058x1036.png",
@@ -18,15 +19,18 @@ public class WorldMap {
             DEFAULT_PROJECTION = ProjectionType.EQUIRECTANGULAR;
     private final @NotNull ProjectionType projection;
 
+    //TODO: add javadoc
     @SuppressWarnings("unused")
     protected WorldMap() {
         this(null);
     }
 
+    //TODO: add javadoc
     protected WorldMap(@Nullable ProjectionType projection) {
         this.projection = Objects.requireNonNullElse(projection, DEFAULT_PROJECTION);
     }
 
+    //TODO: add javadoc
     protected BufferedImage getImage() throws IOException {
         String filePath;
         switch (projection) {
