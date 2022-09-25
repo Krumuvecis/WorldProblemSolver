@@ -18,8 +18,8 @@ class RegionPainter {
             add(new RegionDrawInfo(new Europe(), 0, true));
             add(new RegionDrawInfo(new Russia(), 2, true));
             add(new RegionDrawInfo(new Belarus(), 1, true));
-            add(new RegionDrawInfo(new Ukraine(), 2, true));
-            add(new RegionDrawInfo(new Moldova(), 1, true));
+            add(new RegionDrawInfo(new Ukraine(), 1, true));
+            add(new RegionDrawInfo(new Moldova(), 2, true));
         }};
     }
 
