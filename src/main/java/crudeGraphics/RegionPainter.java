@@ -1,13 +1,14 @@
 package crudeGraphics;
 
-import geography.regions.AbstractRegion;
-import geography.regions.particularRegions.SampleRegion;
-import geography.regions.particularRegions.Russia;
-import geography.regions.particularRegions.Belarus;
+import geography.AbstractRegion;
+import geography.particularRegions.sampleRegion.SampleRegion;
+import geography.particularRegions.Russia;
+import geography.particularRegions.Belarus;
 
 import java.util.List;
 import java.util.ArrayList;
-import java.awt.*;
+import java.awt.Graphics;
+import java.awt.Color;
 
 class RegionPainter {
     private final List<RegionDrawInfo> regionDrawInfo;

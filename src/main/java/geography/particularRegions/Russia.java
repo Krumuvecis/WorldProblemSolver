@@ -1,10 +1,10 @@
-package geography.regions.particularRegions;
+package geography.particularRegions;
 
-import geography.regions.AbstractRegion;
-import geography.regions.RegionBorderInfo;
-import geography.regions.particularBorders.RussiaBelarusSouthwards;
-import geography.regions.particularBorders.RussiaNorthWestClockwise;
-import geography.regions.particularBorders.RussiaSouthCounterClockwise;
+import geography.AbstractRegion;
+import geography.RegionBorderInfo;
+import geography.particularBorders.RussiaNorthWestClockwise;
+import geography.particularBorders.RussiaSouthCounterClockwise;
+import geography.particularBorders.RussiaBelarusSouthwards;
 
 import java.util.ArrayList;
 

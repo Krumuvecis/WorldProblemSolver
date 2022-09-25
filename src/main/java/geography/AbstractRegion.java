@@ -1,15 +1,15 @@
-package geography.regions;
+package geography;
 
+import java.util.Objects;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.*;
-import java.awt.*;
+import java.awt.Polygon;
 
-import geography.Coordinates;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class AbstractRegion {
+public abstract class AbstractRegion {
     private final @NotNull List<@NotNull RegionBorderInfo> borders; //boolean shows if reversed order
 
     public AbstractRegion(@Nullable List<@NotNull RegionBorderInfo> borders) {

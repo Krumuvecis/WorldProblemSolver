@@ -1,11 +1,11 @@
-package geography.regions.particularBorders;
+package geography.particularBorders;
 
-import geography.regions.Border;
-import geography.regions.Location;
+import geography.AbstractBorder;
+import geography.Location;
 
 import java.util.ArrayList;
 
-public class RussiaBelarusSouthwards extends Border {
+public class RussiaBelarusSouthwards extends AbstractBorder {
     public RussiaBelarusSouthwards() {
         super(new ArrayList<>() {{
             add(new Location(

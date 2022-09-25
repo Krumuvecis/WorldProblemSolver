@@ -1,12 +1,12 @@
-package geography.regions;
+package geography;
 
 import org.jetbrains.annotations.NotNull;
 
 public class RegionBorderInfo {
-    private final @NotNull Border border;
+    private final @NotNull AbstractBorder border;
     private final boolean reverseOrder;
 
-    public RegionBorderInfo(@NotNull Border border, boolean reverseOrder) {
+    public RegionBorderInfo(@NotNull AbstractBorder border, boolean reverseOrder) {
         this.border = border;
         this.reverseOrder = reverseOrder;
     }
