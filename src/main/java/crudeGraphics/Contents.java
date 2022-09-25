@@ -1,5 +1,7 @@
 package crudeGraphics;
 
+import geography.Coordinates;
+import geography.regions.AbstractRegion;
 import geography.regions.SampleRegion;
 
 import javax.swing.*;
@@ -24,11 +26,14 @@ public class Contents extends JPanel {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        g.setColor(Color.red);
+        g.setColor(new Color(255, 30, 20, 170));
         drawSampleRegion(g);
 
         g.setColor(new Color(20, 255, 20, 190));
         drawGroundTrack(g, 24.1056, 56.9677); //Riga
+        drawGroundTrack(g, 28.72072572239927, 44.87737491123246); //Romania
+        drawGroundTrack(g, 12.222585507407091, 44.42201217577874); //Italy
+        drawGroundTrack(g, -0.5614115111024103, 38.38596174661448); //Spain
         g.setColor(new Color(20, 50, 255, 190));
         drawGroundTrack(g, -52.6832, 5.1673); //Guiana Space Centre
     }
@@ -49,58 +54,20 @@ public class Contents extends JPanel {
     }
 
     private void drawSampleRegion(Graphics g) {
-        SampleRegion sampleRegion = new SampleRegion();
-        int
-                northernBorderPointCount = sampleRegion.northernBorder.length,
-                southernBorderPointCount = sampleRegion.southernBorder.length,
-                pointCount = northernBorderPointCount + southernBorderPointCount + 2;
-        int[]
-                xPoints = new int[pointCount],
-                yPoints = new int[pointCount];
-
-        int[] westernExtreme = polarToDrawable(sampleRegion.westernExtreme);
-        xPoints[0] = westernExtreme[0];
-        yPoints[0] = westernExtreme[1];
-
-        for (int i = 0; i < northernBorderPointCount; i ++) {
-            int[] point = polarToDrawable(sampleRegion.northernBorder[i]);
-            xPoints[i + 1] = point[0];
-            yPoints[i + 1] = point[1];
-        }
-
-        int[] easternExtreme = polarToDrawable(sampleRegion.easternExtreme);
-        xPoints[northernBorderPointCount + 1] = easternExtreme[0];
-        yPoints[northernBorderPointCount + 1] = easternExtreme[1];
-
-        for (int i = 0; i < southernBorderPointCount; i ++) {
-            int[] point = polarToDrawable(sampleRegion.southernBorder[i]);
-            xPoints[northernBorderPointCount + southernBorderPointCount + 1 - i] = point[0];
-            yPoints[northernBorderPointCount + southernBorderPointCount + 1 - i] = point[1];
-        }
-
-        g.fillPolygon(xPoints, yPoints, pointCount);
+        AbstractRegion sampleRegion = new SampleRegion();
+        Polygon polygon = sampleRegion.getPolygon(new int[] {
+                this.getWidth(),
+                this.getHeight()});
+        g.fillPolygon(polygon);
     }
 
     private int[] polarToDrawable(double[] polar) {
-        int
-                drawWidth = this.getWidth(),
-                drawHeight = this.getHeight();
-
-        double[]
-                centerOffset = new double[] {
-                        drawWidth / 2.0,
-                        drawHeight / 2.0},
-                scale = new double[] {
-                        drawWidth / (Math.PI * 2),
-                        drawHeight / (Math.PI)};
-
-        int
-                drawX = (int) (centerOffset[0] + polar[0] * scale[0]),
-                drawY = (int) (centerOffset[1] - polar[1] * scale[1]);
-        if (drawX >= drawWidth) {
-            drawX -= drawWidth;
-        }
-        return new int[] {drawX, drawY};
+        int[] drawable = Coordinates.polarToDrawable(
+                polar,
+                new int[] {
+                        this.getWidth(),
+                        this.getHeight()});
+        return new int[] {drawable[0], drawable[1]};
     }
 
     private void drawSinglePoint(Graphics g, int[] location) {
