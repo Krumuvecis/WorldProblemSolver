@@ -2,6 +2,8 @@ package crudeGraphics;
 
 import geography.Coordinates;
 import geography.Location;
+import geography.particularLocations.Riga;
+import geography.particularLocations.GuianaSpaceCenter;
 
 import java.awt.Graphics;
 import java.awt.Color;
@@ -9,14 +11,22 @@ import java.awt.Color;
 import org.jetbrains.annotations.NotNull;
 
 class GroundTrackPainter {
+    private static final int COMMON_OPACITY = 190;
+
     protected void paintGroundTracks(Graphics g, int @NotNull [] drawSize) {
-        g.setColor(new Color(20, 255, 20, 190));
-        drawGroundTrack(g, drawSize, new Location("Riga", 56.9677, 24.1056));
-        drawGroundTrack(g, drawSize, new Location("Romania", 44.87737491123246, 28.72072572239927));
-        drawGroundTrack(g, drawSize, new Location("Italy", 44.42201217577874, 12.222585507407091));
-        drawGroundTrack(g, drawSize, new Location("Spain", 38.38596174661448, -0.5614115111024103));
-        g.setColor(new Color(20, 50, 255, 190));
-        drawGroundTrack(g, drawSize, new Location("Guiana Space Centre", 5.1673, -52.6832));
+        g.setColor(new Color(20, 255, 20, COMMON_OPACITY));
+        drawGroundTrack(g, drawSize, new Riga());
+        drawGroundTrack(g, drawSize, new Location(
+                "Romania",
+                44.87737491123246, 28.72072572239927));
+        drawGroundTrack(g, drawSize, new Location(
+                "Italy",
+                44.42201217577874, 12.222585507407091));
+        drawGroundTrack(g, drawSize, new Location(
+                "Spain",
+                38.38596174661448, -0.5614115111024103));
+        g.setColor(new Color(20, 50, 255, COMMON_OPACITY));
+        drawGroundTrack(g, drawSize, new GuianaSpaceCenter());
     }
 
     private void drawGroundTrack(Graphics g, int @NotNull [] drawSize, @NotNull Location start) {
@@ -25,7 +35,7 @@ class GroundTrackPainter {
         double deltaFi = 2 * Math.PI / dataPoints;
         for (int i = 0; i < dataPoints; i++) {
             double longitudeOffset = deltaFi * i;
-            g.setColor(new Color(20, 255, 20, 190));
+            g.setColor(new Color(20, 255, 20, COMMON_OPACITY));
             drawSinglePoint(g, Coordinates.polarToDrawable(
                     new double[] {
                             longitudeOffset + startCoordinates[0],
