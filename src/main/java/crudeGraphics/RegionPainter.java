@@ -10,6 +10,7 @@ import java.awt.Graphics;
 import java.awt.Color;
 
 class RegionPainter {
+    private static final int COMMON_OPACITY = 150;
     private final List<RegionDrawInfo> regionDrawInfo;
 
     RegionPainter() {
@@ -18,8 +19,8 @@ class RegionPainter {
             add(new RegionDrawInfo(new Europe(), 0, true));
             add(new RegionDrawInfo(new Russia(), 2, true));
             add(new RegionDrawInfo(new Belarus(), 1, true));
-            add(new RegionDrawInfo(new Ukraine(), 1, true));
-            add(new RegionDrawInfo(new Moldova(), 2, true));
+            add(new RegionDrawInfo(new Ukraine(), 2, true));
+            add(new RegionDrawInfo(new Moldova(), 1, true));
         }};
     }
 
@@ -27,9 +28,9 @@ class RegionPainter {
         for (RegionDrawInfo regionInfo : regionDrawInfo) {
             if (regionInfo.draw) {
                 switch (regionInfo.dangerLevel) {
-                    case 1 -> g.setColor(new Color(255, 220, 20, 170));
-                    case 2 -> g.setColor(new Color(255, 30, 20, 170));
-                    default -> g.setColor(new Color(20, 200, 255, 170));
+                    case 1 -> g.setColor(new Color(255, 220, 20, COMMON_OPACITY));
+                    case 2 -> g.setColor(new Color(255, 30, 20, COMMON_OPACITY));
+                    default -> g.setColor(new Color(20, 200, 255, COMMON_OPACITY));
                 }
                 paintRegion(g, drawSize, regionInfo.region);
             }
