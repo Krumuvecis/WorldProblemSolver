@@ -2,6 +2,7 @@ package geography.particularBorders;
 
 import geography.AbstractBorder;
 import geography.Location;
+import geography.particularLocations.commonBorderPoints.KerchStrait;
 
 import java.util.ArrayList;
 
@@ -14,9 +15,7 @@ public class UkraineRussiaSouthwards extends AbstractBorder {
             /*add(new Location(
                     "",
                     ));*/
-            add(new Location(
-                    "Kerch strait",
-                    45.206991993143575, 36.611975365031476));
+            add(new KerchStrait());
         }});
     }
 }
