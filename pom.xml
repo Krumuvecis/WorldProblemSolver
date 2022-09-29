@@ -6,7 +6,7 @@
 
     <groupId>com.github.Krumuvecis</groupId>
     <artifactId>WorldProblemSolver</artifactId>
-    <version>0.1</version>
+    <version>0.2</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -14,7 +14,16 @@
         <maven.compiler.target>18</maven.compiler.target>
         <maven.surefire.version>3.0.0-M7</maven.surefire.version>
         <jetbrains.annotations.version>23.0.0</jetbrains.annotations.version>
+        <krumf.consoleUtils.version>0.2</krumf.consoleUtils.version>
+        <krumuvecis.statisticsTools.version>0.2</krumuvecis.statisticsTools.version>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
 
     <dependencies>
         <dependency>
@@ -28,6 +37,17 @@
             <artifactId>annotations</artifactId>
             <version>${jetbrains.annotations.version}</version>
             <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.KruMF</groupId>
+            <artifactId>ConsoleUtils</artifactId>
+            <version>${krumf.consoleUtils.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.Krumuvecis</groupId>
+            <artifactId>StatisticsTools</artifactId>
+            <version>${krumuvecis.statisticsTools.version}</version>
         </dependency>
     </dependencies>
 

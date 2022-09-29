@@ -1,6 +1,6 @@
 package geography.glaciers;
 
-import geography.ClimateChange;
+import globalWarming.ClimateChange;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -75,7 +75,7 @@ public class GlacierSummary {
 
     static class GlacierReference2022 extends GlacierReference {
         GlacierReference2022(double glacierVolume, double glacierVolumeChange) {
-            super(ClimateChange.GLOBAL_TEMPERATURE_2022, glacierVolume, glacierVolumeChange);
+            super(13.9 /*ClimateChange.GLOBAL_TEMPERATURE_2022*/, glacierVolume, glacierVolumeChange);
         }
     }
 }
